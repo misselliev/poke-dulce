@@ -1,0 +1,7 @@
+.button-list {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-gap: 10px;
+    border: 1px solid green;
+    padding: 1rem;
+}
