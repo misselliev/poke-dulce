@@ -17,6 +17,7 @@ const Home = () => {
 
     return(
         <section>
+            <h1>Dulce Pokédex</h1>
             <Gallery />
             <ButtonList />
         </section>
