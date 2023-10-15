@@ -26,7 +26,7 @@ export const getSpecificPokemon = createAsyncThunk('pokemon/getPokemon', async(p
         return response.data
     } catch(error){
     return thunkAPI.rejectWithValue({error: error.message})
-}
+    }
 })
 
 const pokeSlice = createSlice({
@@ -35,15 +35,13 @@ const pokeSlice = createSlice({
         status: 'idle',
         error: null,
         list: [],
-        selected: null,
+        selectedName: '',
+        selectedPokemonInfo: null
     },
     reducers: {
         selectPokemon: (state, action) => {
-            state.selected = action.payload
+            state.selectedName = action.payload
         },
-        loadPokemonImage: (state, action) => {
-            state.image = action.payload
-        }
     },
     extraReducers: {
         [getPokeList.rejected]: (state, action) => {
@@ -54,7 +52,7 @@ const pokeSlice = createSlice({
             state.status = 'success'
             state.list= action.payload
         },
-        [getPokeList.loading]: (state, action) => {
+        [getPokeList.pending]: (state, action) => {
             state.status = 'loading',
             state.list = action.payload
         },
@@ -64,18 +62,15 @@ const pokeSlice = createSlice({
         },
         [getSpecificPokemon.fulfilled]: (state, action) => {
             state.status = 'success'
-            state.selected= action.payload
+            state.selectedPokemonInfo= action.payload
         },
-        [getSpecificPokemon.loading]: (state, action) => {
+        [getSpecificPokemon.pending]: (state, action) => {
             state.status = 'loading',
-            state.selected = action.payload
+            state.selectedPokemonInfo = action.payload
         }
-
-
     } 
 })
 
-// const { selectPokemon } = pokeSlice.actions
 
 // ivan.fuentes@densitylabs.io
 
