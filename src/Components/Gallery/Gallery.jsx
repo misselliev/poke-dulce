@@ -1,25 +1,21 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getSpecificPokemon } from "../../Redux/pokeSlice"
+/* eslint-disable no-unused-vars */
+import { useSelector } from "react-redux"
 import './Gallery.css'
 import Spinner from "../Spinner/Spinner"
 
 const Gallery = () => {
-    const dispatch = useDispatch()
-    const state = useSelector((state) => state.pokemon)
-    const { selected, status } = state
    
-
-    useEffect(() => {
-        if(selected !== null) dispatch(getSpecificPokemon(selected))
-    }, [dispatch, selected])
-
-    const image = selected !==  null ? selected?.sprites?.other?.dream_world?.front_default : 'https://i.imgur.com/J70hE3t.png'
+    const state = useSelector((state) => state.pokemon)
+    const { status, selectedPokemonInfo } = state
+    
+    const image = selectedPokemonInfo?.sprites !==  undefined ? selectedPokemonInfo?.sprites?.other?.dream_world?.front_default : 'https://i.imgur.com/J70hE3t.png'
 
     return (
         <>
-        {status === 'loading' && <Spinner />}
-        {status !== 'loading' && <img loading=" lazy" src={image}/>}
+        {status === 'loading' ? 
+            (<Spinner />) : 
+            (<img loading=" lazy" src={image}/>)
+        }
         </>
     )
 }

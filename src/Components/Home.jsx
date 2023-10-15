@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getPokeList } from "../Redux/pokeSlice"
-import ButtonList from "./ButtonList/ButtonList"
+import Main from "./Main/Main"
 import Gallery from "./Gallery/Gallery"
+import Stats from "./Stats/Stats"
 import './Home.css'
 
 const Home = () => {
@@ -16,11 +17,14 @@ const Home = () => {
     }, [dispatch, status])
 
     return(
-        <section>
+        <>
             <h1>Dulce Pokédex</h1>
-            <Gallery />
-            <ButtonList />
-        </section>
+            <section className="home">
+                <Gallery />
+                <Main />
+                <Stats />
+            </section>
+        </>
     )
 }
 

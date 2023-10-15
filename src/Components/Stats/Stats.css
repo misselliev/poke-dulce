@@ -1,0 +1,11 @@
+.stats {
+    border: 1px solid orange;
+    width: 270px;
+    text-align: start;
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+}
+
+h3 {
+    text-align: center;
+}
