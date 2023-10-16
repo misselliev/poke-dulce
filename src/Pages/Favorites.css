@@ -20,11 +20,12 @@
 }
 
 .ui.card>.image {
-    min-height: 200px;
+    min-height: 300px;
     width: auto;
     opacity: 1;
 }
 
 img {
+    height: 300px !important;
     opacity: 1;
 }
