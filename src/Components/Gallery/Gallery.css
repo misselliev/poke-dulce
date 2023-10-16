@@ -3,6 +3,7 @@
     width: auto;
     border-radius: 7px;
     display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -15,4 +16,8 @@ img {
 
 img.loaded {
     opacity: 1;
-  }
+}
+
+.buttons {
+    margin: auto;
+}
