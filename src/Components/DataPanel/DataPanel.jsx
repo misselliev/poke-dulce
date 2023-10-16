@@ -6,6 +6,7 @@ import { getSpecificPokemon } from "../../Redux/pokeSlice"
 import Stats from '../Stats/Stats'
 import ButtonList from "../ButtonList/ButtonList"
 import Pagination from "../Pagination/Pagination"
+import { Segment } from "semantic-ui-react"
 
 const DataPanel = () => {
     const dispatch = useDispatch()
@@ -35,12 +36,12 @@ const DataPanel = () => {
     return (
         <>
         <div className="data-panel">
-            <div className="list">
+            <Segment raised className="list">
                 <ButtonList handleClick={handleClick} handleDoubleClick={handleDoubleClick} />
                 <Pagination />
-            </div>
+            </Segment>
             
-            {isDoubleClicked && <Stats isDoubleClicked={isDoubleClicked} />}
+            <Stats isDoubleClicked={isDoubleClicked} />
         </div>
         </>
     )
