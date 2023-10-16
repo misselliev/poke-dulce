@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
+import './Navbar.css'
 
 const Navbar = () => (
-  <nav className="ui container">
     <Menu>
       <Link className="header item" to="/">
         <i className="paw icon" />
@@ -10,7 +10,7 @@ const Navbar = () => (
       </Link>
       <Menu.Item className="menu right">
         <Link className="item" href="/" to="/">
-          <i className="home icon" />
+          <i className="rocket icon" />
           Home
         </Link>
         <Link className="item" href="/favorites" to="/favorites">
@@ -19,7 +19,6 @@ const Navbar = () => (
         </Link>
       </Menu.Item>
     </Menu>
-  </nav>
 );
 
 export default Navbar;
