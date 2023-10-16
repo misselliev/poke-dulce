@@ -7,9 +7,7 @@ Dulce the Chihuahua :dog: reimagines a Poxédex to see all of the OG pokémons.
 
 ## Screenshots
 
-![Home] (docs/pokemon-1.png)
-![HomeList] (docs/pokemon-2.png)
-![Favorites] (docs/pokemon-3.png)
+![Home] (docs/pokemon1.png)
 
 ## 🔨 Tools
 - React
