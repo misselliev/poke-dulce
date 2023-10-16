@@ -1,0 +1,30 @@
+.favorites {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .ui.card {
+        min-height: 400px;
+        width: 300px;
+        margin: 1rem;
+    }
+}
+
+.ui.card>.content>.header {
+    text-transform: capitalize;
+}
+
+.ui.card>.extra {
+    margin: auto;
+}
+
+.ui.card>.image {
+    min-height: 200px;
+    width: auto;
+    opacity: 1;
+}
+
+img {
+    opacity: 1;
+}
