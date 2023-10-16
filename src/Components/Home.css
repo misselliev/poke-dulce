@@ -1,7 +1,19 @@
-section {
+.home {
     display: grid;
-    grid-template-columns: 35% 35% 35%;
-    grid-gap: 1rem;
+    grid-template-columns: 35% 65%;
+    grid-gap: 1.7rem;
     width: 1200px;
     border: 1px solid white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.12), 0 6px 15px 20px rgba(0, 0, 0, 0.16);
+    min-height: 600px;
+    
+    @media (max-width: 767px) {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+  

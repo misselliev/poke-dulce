@@ -1,23 +1,26 @@
-import { useDispatch, useSelector } from "react-redux"
-import pokeSlice from '../../Redux/pokeSlice'
+/* eslint-disable react/prop-types */
+import { useSelector } from "react-redux"
 import './ButtonList.css'
 
-const ButtonList = () => {
-    const dispatch = useDispatch()
+const ButtonList = ({ handleClick, handleDoubleClick }) => {
     const state = useSelector((state) => state.pokemon)
     const { list } = state
-    const { selectPokemon } = pokeSlice.actions
+
 
     return (
-        <div className="button-list">
-        {list?.map((item, index) => {
-            return(
-                <button key={index} onClick={() => dispatch(selectPokemon(item.name))}>
-                    {item.name}
-                </button>
-            )
-        })}
-        </div>
+        <>
+            <div className="button-list">
+            {list?.map((item, index) => {
+                return(
+                    <button key={index} onClick={(e) => handleClick(e, item)} 
+                    onDoubleClick={handleDoubleClick}
+                    >
+                        {item.name}
+                    </button>
+                )})
+            }
+            </div>
+        </>
     )
 }
 

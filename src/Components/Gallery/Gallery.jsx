@@ -1,26 +1,29 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getSpecificPokemon } from "../../Redux/pokeSlice"
+/* eslint-disable no-unused-vars */
+import { useState } from "react"
+import { useSelector } from "react-redux"
 import './Gallery.css'
 import Spinner from "../Spinner/Spinner"
 
 const Gallery = () => {
-    const dispatch = useDispatch()
-    const state = useSelector((state) => state.pokemon)
-    const { selected, status } = state
    
+    const state = useSelector((state) => state.pokemon)
+    const { status, selectedPokemonInfo } = state
 
-    useEffect(() => {
-        if(selected !== null) dispatch(getSpecificPokemon(selected))
-    }, [dispatch, selected])
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    const image = selected !==  null ? selected?.sprites?.other?.dream_world?.front_default : 'https://i.imgur.com/J70hE3t.png'
+    const handleImageLoad = () => {
+        setIsLoaded(true);
+      };
+    
+    const image = selectedPokemonInfo?.sprites !==  undefined ? selectedPokemonInfo?.sprites?.other?.dream_world?.front_default : 'https://i.imgur.com/J70hE3t.png'
 
     return (
-        <>
-        {status === 'loading' && <Spinner />}
-        {status !== 'loading' && <img loading=" lazy" src={image}/>}
-        </>
+        <section className="gallery">
+        {status === 'loading' ? 
+            (<Spinner />) : 
+            (<img className={`${isLoaded ? 'loaded' : ''}`} loading=" lazy" onLoad={handleImageLoad} src={image} alt={selectedPokemonInfo?.name}/>)
+        }
+        </section>
     )
 }
 

@@ -1,0 +1,13 @@
+.stats {
+    width: 270px;
+    text-align: start;
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+    background-color: #F9F5E3;
+    color: gray;
+    border-radius: 7px;
+}
+
+h3 {
+    text-align: center;
+}
