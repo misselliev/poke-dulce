@@ -20,7 +20,7 @@ export const getPokeList = createAsyncThunk('pokemon/getPokeList', async(thunkAP
 })
 
 
-export const getSpecificPokemon = createAsyncThunk('pokemon/getPokemon', async(pokemon, thunkAPI) => {
+export const getSpecificPokemon = createAsyncThunk('pokemon/getSpecificPokemon', async(pokemon, thunkAPI) => {
     try {
         const response = await axios.get(specificPokemon(pokemon))
         return response.data
@@ -43,32 +43,33 @@ const pokeSlice = createSlice({
             state.selectedName = action.payload
         },
     },
-    extraReducers: {
-        [getPokeList.rejected]: (state, action) => {
-            state.status = 'rejected'
-            state.error = action.payload.error
-        },
-        [getPokeList.fulfilled]: (state, action) => {
-            state.status = 'success'
-            state.list= action.payload
-        },
-        [getPokeList.pending]: (state, action) => {
-            state.status = 'loading',
-            state.list = action.payload
-        },
-        [getSpecificPokemon.rejected]: (state, action) => {
-            state.status = 'rejected'
-            state.error = action.payload.error
-        },
-        [getSpecificPokemon.fulfilled]: (state, action) => {
-            state.status = 'success'
-            state.selectedPokemonInfo= action.payload
-        },
-        [getSpecificPokemon.pending]: (state, action) => {
-            state.status = 'loading',
-            state.selectedPokemonInfo = action.payload
-        }
-    } 
+    extraReducers: (builder) => {
+        builder
+          .addCase(getPokeList.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.error = action.payload.error;
+          })
+          .addCase(getPokeList.fulfilled, (state, action) => {
+            state.status = 'success';
+            state.list = action.payload;
+          })
+          .addCase(getPokeList.pending, (state, action) => {
+            state.status = 'loading';
+            state.list = action.payload;
+          })
+          .addCase(getSpecificPokemon.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.error = action.payload.error;
+          })
+          .addCase(getSpecificPokemon.fulfilled, (state, action) => {
+            state.status = 'success';
+            state.selectedPokemonInfo = action.payload;
+          })
+          .addCase(getSpecificPokemon.pending, (state, action) => {
+            state.status = 'loading';
+            state.selectedPokemonInfo = action.payload;
+          });
+      },
 })
 
 
