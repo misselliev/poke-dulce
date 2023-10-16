@@ -1,16 +1,21 @@
+/* eslint-disable react/prop-types */
 import { useSelector } from "react-redux"
 import './Stats.css'
+import { Segment } from "semantic-ui-react"
 
-const Stats = () => {
+const Stats = ({isDoubleClicked}) => {
     const state = useSelector((state) => state.pokemon)
     const { selectedPokemonInfo } = state
    
     return (
-        <section className="stats">
-            {selectedPokemonInfo ? (
+        <>
+        <Segment raised className="stats">
+        {isDoubleClicked ? (
+            <>
+            {selectedPokemonInfo && (
                 <>
                 <h3>{selectedPokemonInfo?.name}</h3>
-    
+            
                 <h4>Abilities</h4>
                 <ul>
                 {selectedPokemonInfo?.abilities?.map((ability, index) => {
@@ -19,14 +24,14 @@ const Stats = () => {
                         )})
                     }
                 </ul>
-    
+            
                 <h4>Type</h4>
                 {selectedPokemonInfo?.types?.map((type, index) => {
                     return(
                         <p key={`${type?.type}-${index}`}>{type?.type?.name}</p>
                     )})
                 }
-    
+            
                 <h4>Moves</h4>
                 <ul>
                 {selectedPokemonInfo?.moves?.slice(0,5)?.map((move, index) => {
@@ -36,9 +41,15 @@ const Stats = () => {
                     }
                 </ul>
                 </>
-                ) : null
+                )
             }
-        </section>
+            </>
+
+        ) :  (
+            <p>Double click on a Pokémon to display its stats</p>
+        )}
+        </Segment>
+    </>
     )
 }
 
