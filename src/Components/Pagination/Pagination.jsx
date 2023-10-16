@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setCurrentPage, getPokeList, calculateTotalPages } from '../../Redux/pokeSlice';
 import './Pagination.css'
+import { Button } from 'semantic-ui-react';
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -32,12 +33,12 @@ const Pagination = () => {
 
   return (
     <nav>
-      <button onClick={handlePreviousPage} disabled={!hasPrevious}>
+      <Button color="blue" onClick={handlePreviousPage} disabled={!hasPrevious}>
         Previous
-      </button>
-      <button onClick={handleNextPage} disabled={!hasNext}>
+      </Button>
+      <Button color="blue" onClick={handleNextPage} disabled={!hasNext}>
         Next
-      </button>
+      </Button>
     </nav>
   );
 };

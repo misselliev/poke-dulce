@@ -1,0 +1,7 @@
+.ui.menu .item:before {
+    width: 0px;
+}
+
+.ui.menu {
+    margin-top: 7rem;
+}

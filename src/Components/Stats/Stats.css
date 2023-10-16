@@ -1,11 +1,12 @@
 .stats {
-    width: 270px;
+    width: 95%;
     text-align: start;
     padding: 1rem 2rem;
     text-transform: capitalize;
-    background-color: #F9F5E3;
     color: gray;
     border-radius: 7px;
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
 }
 
 h3 {

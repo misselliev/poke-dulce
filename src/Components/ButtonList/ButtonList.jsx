@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux"
 import './ButtonList.css'
+import { Button } from "semantic-ui-react"
 
 const ButtonList = ({ handleClick, handleDoubleClick }) => {
     const state = useSelector((state) => state.pokemon)
@@ -12,11 +13,11 @@ const ButtonList = ({ handleClick, handleDoubleClick }) => {
             <div className="button-list">
             {list?.map((item, index) => {
                 return(
-                    <button key={index} onClick={(e) => handleClick(e, item)} 
+                    <Button color="teal" key={index} onClick={(e) => handleClick(e, item)} 
                     onDoubleClick={handleDoubleClick}
                     >
                         {item.name}
-                    </button>
+                    </Button>
                 )})
             }
             </div>
