@@ -1,15 +1,15 @@
 ![beta development](https://img.shields.io/badge/beta-development-green?style=flat-square)
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg)
 
-# 💻:rocket: Woof Pokédex (BETA)
+# :rocket: Woof Pokédex (BETA)
 
 Dulce the Chihuahua :dog: reimagines a Poxédex to see all of the OG pokémons. 
 
 ## Screenshots
 
-![Home] (docs/pokemon-1.png)
-![HomeList] (docs/pokemon-2.png)
-![Favorites] (docs/pokemon-3.png)
+![Home](docs/pokemon1.png)
+![HomeList](docs/pokemon2.png)
+![Favorites](docs/pokemon3.png)
 
 ## 🔨 Tools
 - React
