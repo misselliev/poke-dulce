@@ -1,12 +1,16 @@
 
 import './App.css'
-import Home from './Components/Home'
+import Navigation from './Routes'
+import Navbar from './Components/Navbar/Navbar'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-
   return (
     <>
-      <Home />
+    <BrowserRouter>
+      <Navbar />
+      <Navigation />
+    </BrowserRouter>
     </>
   )
 }
